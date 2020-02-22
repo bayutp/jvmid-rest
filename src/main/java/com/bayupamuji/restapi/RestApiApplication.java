@@ -1,7 +1,9 @@
 package com.bayupamuji.restapi;
 
 import com.bayupamuji.restapi.domain.Car;
+import com.bayupamuji.restapi.domain.Mahasiswa;
 import com.bayupamuji.restapi.repository.CarRepository;
+import com.bayupamuji.restapi.repository.MahasiswaRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,6 +30,22 @@ public class RestApiApplication {
 			repository.save(new Car("toyota","city car","black","bensin",2018));
 			repository.save(new Car("nissan","city car","white","bensin",2019));
 			repository.save(new Car("honda","city car","white","bensin",2020));
+		});
+	}
+
+	@Bean
+	public CommandLineRunner initialMhs(MahasiswaRepository mhsRepo){
+		return (args -> {
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
+			mhsRepo.save(new Mahasiswa("ali","matika"));
+			mhsRepo.save(new Mahasiswa("ali","fisika"));
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
+			mhsRepo.save(new Mahasiswa("ali","kimia"));
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
+			mhsRepo.save(new Mahasiswa("ali","biologi"));
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
+			mhsRepo.save(new Mahasiswa("ali","informatika"));
 		});
 	}
 }
